@@ -50,3 +50,16 @@ inputとselectを混ぜたものを送る方法調べる
 リザルト
 result
 
+
+cdでディレクトリ移動してから
+git init
+
+git addで追加したいファイルを指定する
+git commit -m "何したか"
+githubの…or create a new repository on the command line
+全部やれ
+
+git status で更新したファイルを確認
+
+git checkout "ファイル名" 前回のセーブデータに戻す
+やろうと思えばどこまでも巻き戻せる(別のコマンド)
