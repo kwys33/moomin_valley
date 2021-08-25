@@ -1,0 +1,52 @@
+$rails generate controller home top
+
+routes.rb
+>get "/" => "home#top"
+
+
+
+
+紆余曲折
+
+タイムゾーンはこれで直った
+\sample_app\config\initializers\time_formats.rbにファイルを追加
+Time::DATE_FORMATS[:default] = '%Y/%m/%d %H:%M'
+Time::DATE_FORMATS[:datetime] = '%Y/%m/%d %H:%M'
+Time::DATE_FORMATS[:date] = '%Y/%m/%d'
+Time::DATE_FORMATS[:time] = '%H:%M:%S'
+Date::DATE_FORMATS[:default] = '%Y/%m/%d'
+
+ja.yml追加してソースコード持ってきたらバリデーションのエラーが直った
+
+カラムの確認方法
+Post.column_names
+select * from posts; (rails dbconsole)
+
+1度作ったマイグレーションファイルは手を出すとすごいめんどくさい
+
+リセットしてマイグレーションファイルを書き直す
+
+rails db:migrateを打ったら上から順番に実行されるので残しておいてOK
+
+
+st10というDBを作る
+
+rails g model st10 comment:text
+st10sテーブルも作られる
+
+St10.column_names
+
+add_column :st10s, :user, :string
+user,score1p,score2p,url
+
+カラムは追加できた
+
+inputとselectを混ぜたものを送る方法調べる
+
+
+数字から始めるのはうんこカス
+モデルに数字含めるのもNG
+
+リザルト
+result
+

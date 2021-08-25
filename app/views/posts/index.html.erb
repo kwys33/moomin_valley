@@ -1,0 +1,31 @@
+
+<%= form_tag("/posts/create") do %>
+    <div class="form">
+            <div class="form-name">
+            名前
+            <input name="user">
+            </div>
+        内容
+        <textarea name="content"></textarea>
+        <div class="form-btn">
+            <input type="submit" value="ぽち" >
+        </div>
+    </div>
+<% end %>
+
+
+<% @post.each do |post| %>
+    <div class = "post-item">
+    <%= post.content %>
+    <br>
+        <div class= "post-right">
+            <%= post.created_at %>
+            <%= post.user %>
+        </div>
+    </div>
+<% end %>
+
+
+
+
+

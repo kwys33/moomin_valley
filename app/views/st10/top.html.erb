@@ -1,0 +1,10 @@
+<div class="register">
+
+
+
+<%= form_with model: @user do |form| %>
+    名前 <input name="name">
+    <%= form.select :chara, [["(SO)", "(SO)"], ["(KY)", "(KY)"], ["(MA)", "(MA)"], ["(AX)", "(AX)"],["(CH)", "(CH)"],["(PO)", "(PO)"],["(FA)", "(FA)"],["(MI)", "(MI)"],["(ZT)", "(ZT)"],["(RA)", "(RA)"],["(LE)", "(LE)"],["(NA)", "(NA)"],["(GI)", "(GI)"],["(AN)", "(AN)"],["(IN)", "(IN)"],["(GO)", "(GO)"],["(JC)", "(JC)"],], include_blank: "キャラ" %>
+    <%= form.submit '送信'%>
+<% end %>
+</div>
