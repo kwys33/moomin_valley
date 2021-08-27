@@ -10,13 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_23_061145) do
+ActiveRecord::Schema.define(version: 2021_08_26_113338) do
 
   create_table "posts", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "user"
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.string "player1"
+    t.integer "score1p"
+    t.integer "score2p"
+    t.string "url"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "player2"
   end
 
   create_table "st10s", force: :cascade do |t|
@@ -27,6 +38,13 @@ ActiveRecord::Schema.define(version: 2021_08_23_061145) do
     t.integer "score1p"
     t.integer "score2p"
     t.string "url"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "character"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

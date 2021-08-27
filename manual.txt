@@ -47,8 +47,7 @@ inputとselectを混ぜたものを送る方法調べる
 数字から始めるのはうんこカス
 モデルに数字含めるのもNG
 
-リザルト
-result
+
 
 
 cdでディレクトリ移動してから
@@ -63,3 +62,77 @@ git status で更新したファイルを確認
 
 git checkout "ファイル名" 前回のセーブデータに戻す
 やろうと思えばどこまでも巻き戻せる(別のコマンド)
+
+git push origin mainでアップロードする
+
+────────────────────
+st10というモデル削除
+st10のカラムも削除
+db:migrate関連からやる
+
+リザルト
+resultというデータベースを作る
+カラム追加する
+
+よし
+
+マイグレーションファイルを生成しているのがモデル
+
+マイグレーションファイルを素にDBが生成される
+どっちかがズレるとエラー吐いて死ぬ
+
+rails db:dropでDB削除する
+(消す予定の)st10モデルを削除する
+st10関連が全部消える
+ここでmigrateしてもいいけど、
+resultを追加してからmigrateしても良い
+
+
+    add_column :result, :user, :string
+    add_column :result, :score1p, :integer
+    add_column :result, :score2p, :integer
+    add_column :result, :url, :string
+↑t.なんちゃらだった
+
+    rails g model result
+    rails g controller result index
+
+p1 p2のカラムも作る
+
+
+Playerモデルを作る
+player
+character
+
+
+Result.column_names
+=> ["id", "player1", "score1p",
+ "score2p", "url", "comment", "created_at", "updated_at", "player2"]
+
+
+ userモデルを作らないといけん
+ rails g model user
+
+ userモデルに
+ name 康隆 
+ character (SO)
+
+rails g controller users
+
+コントローラー名は複数形で作る
+
+
+
+
+ビューに渡す条件が@を付ける
+
+eachは配列の中身を1個ずつ取り出す呪文
+(配列の中身だけループする)
+
+User.all allは配列で返ってくる
+User.first firstは単体で返ってくる
+
+表示させる場合は%=がほしい
+
+
+     

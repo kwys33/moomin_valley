@@ -1,0 +1,98 @@
+<div class="user_register">
+    <%= form_tag("/users/register") do %>
+        名前 <input name="name">
+        キャラ <select name="character">
+        <option value="(SO)">(SO)</option>
+        <option value="(KY)">(KY)</option>
+        <option value="(MA)">(MA)</option>
+        <option value="(AX)">(AX)</option>
+        <option value="(CH)">(CH)</option>
+        <option value="(PO)">(PO)</option>
+        <option value="(FA)">(FA)</option>
+        <option value="(MI)">(MI)</option>
+        <option value="(ZT)">(ZT)</option>
+        <option value="(RA)">(RA)</option>
+        <option value="(LE)">(LE)</option>
+        <option value="(NA)">(NA)</option>
+        <option value="(GI)">(GI)</option>
+        <option value="(AN)">(AN)</option>
+        <option value="(IN)">(IN)</option>
+        <option value="(GO)">(GO)</option>
+        <option value="(JC)">(JC)</option>
+        </select>
+        <input type="submit" value="ぽち">
+    <% end %>
+</div>
+
+
+<br><br><br><br>
+
+<%= form_tag("/results/kekka") do %>
+
+<div class="result_register">
+1P
+<select name="player1">
+    <% @users.each do |user| %>
+    <option value="<%= user.name+user.character %>"><%= user.name+user.character %></option>
+    <% end %>
+</select>
+</div>
+vs
+<div class="result_register">
+2P
+<select name="player2">
+    <% @users.each do |user| %>
+        <option value="<%= user.name+user.character %>"><%= user.name+user.character %></option>
+    <% end %>
+</select>
+</div>
+
+<br><br>
+
+<div class="result_register">
+<select name="score1p">
+    <% @score.each do |score| %>
+        <option value="<%= score %>"><%= score %></option>
+    <% end %>
+</select>
+</div>
+-
+<div class="result_register">
+<select name="score2p">
+    <% @score.each do |score| %>
+        <option value="<%= score %>"><%= score %></option>
+    <% end %>
+</select>
+</div>
+
+<div class="result_register">
+    URL<input name="url">
+</div>
+
+<div class="form">
+    <textarea name="comment"></textarea>
+</div>
+
+<div class="form-btn">
+    <input type="submit" value="ぽち" >
+</div>
+
+<% end %>
+
+
+
+    <% @result.each do |result| %>
+    <div class = "post-item">
+    <%= result.created_at %>
+    <%= result.player1 %> vs <%= result.player2 %> 
+    <%= result.score1p %> - <%= result.score2p %>
+    
+    <br>
+        <div class= "post-right">
+        <%= result.comment %>
+        <%= result.url %>
+            
+
+        </div>
+    </div>
+<% end %>

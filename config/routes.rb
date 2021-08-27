@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get "st10" => "st10#top"
+  get "results" => "results#index"
+  post "results/kekka" => "results#kekka"
 
+  post "users/register" => "users#register"
 
 
   
